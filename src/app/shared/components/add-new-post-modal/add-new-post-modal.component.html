@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Add new post</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form" class="d-flex flex-column align-items-center">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput placeholder="Title" [formControl]="form.get('title')">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input matInput placeholder="Author" [formControl]="form.get('author')">
+    </mat-form-field>
+
+    <input type="file" #fileInput accept="image/*" placeholder="Image" [formControl]="form.get('image')">
+
+  </form>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center">
+  <button mat-flat-button (click)="addNewPost()" [disabled]="form.invalid">Add new post</button>
+</div>
